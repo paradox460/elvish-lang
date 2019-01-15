@@ -1,0 +1,41 @@
+{
+    "name": "elvish-lang",
+    "displayName": "Elvish lang",
+    "description": "Language support for the Elvish Shell language",
+    "version": "0.0.1",
+    "publisher": "paradox460",
+    "scripts": {
+        "build": "npx js-yaml syntaxes/elvish.tmLanguage.yaml > syntaxes/elvish.tmLanguage.json"
+    },
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "elvish",
+                "aliases": [
+                    "Elvish",
+                    "elvish"
+                ],
+                "extensions": [
+                    ".elv"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "elvish",
+                "scopeName": "source.elvish",
+                "path": "./syntaxes/elvish.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^3.12.1"
+    }
+}
