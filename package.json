@@ -4,8 +4,14 @@
     "description": "Language support for the Elvish Shell language",
     "version": "0.0.1",
     "publisher": "paradox460",
+    "icon": "images/icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/paradox460/elvish-lang"
+    },
     "scripts": {
-        "build": "npx js-yaml syntaxes/elvish.tmLanguage.yaml > syntaxes/elvish.tmLanguage.json"
+        "build": "npx js-yaml syntaxes/elvish.tmLanguage.yaml > syntaxes/elvish.tmLanguage.json",
+        "vscode:prepublish": "npm run-script build"
     },
     "engines": {
         "vscode": "^1.30.0"
@@ -14,26 +20,22 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [
-            {
-                "id": "elvish",
-                "aliases": [
-                    "Elvish",
-                    "elvish"
-                ],
-                "extensions": [
-                    ".elv"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "elvish",
-                "scopeName": "source.elvish",
-                "path": "./syntaxes/elvish.tmLanguage.json"
-            }
-        ]
+        "languages": [{
+            "id": "elvish",
+            "aliases": [
+                "Elvish",
+                "elvish"
+            ],
+            "extensions": [
+                ".elv"
+            ],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "elvish",
+            "scopeName": "source.elvish",
+            "path": "./syntaxes/elvish.tmLanguage.json"
+        }]
     },
     "devDependencies": {
         "js-yaml": "^3.12.1"
